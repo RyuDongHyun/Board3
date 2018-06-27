@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @post.title%></h1>
+  <p class="lead"><%= @post.content%></p>
+  <img height="200" width="320" src="<%= @post.img_url%>">
+  <hr class="my-4">
+  <p><%= @post.tag%></p>
+  <a class="btn btn-primary btn-lg" href="/" role="button">뒤로가기</a>
+</div>
+
+<% if @post.name==session[:current_user_name]%>
+<a href="/posts/edit/<%= @post.id%>"><button type="button" class="btn btn-outline-success">수정</button></a>
+<a href="/posts/<%= @post.id%>" data-method="delete"><button type="button" class="btn btn-outline-danger">삭제</button></a>
+<%end%>
